@@ -40,22 +40,27 @@ var shapeInput = d3.select('#shape').property("value");
 //console.log(cityInput);
 //console.log(stateInput);
 var filteredData = tableData;
+//filter data with datetime === to inputValue
 if (inputValue){
     filteredData = filteredData.filter(row => row.datetime === inputValue);
 }
+//filter data with city === cityInput
 if (cityInput){
     filteredData = filteredData.filter(row => row.city === cityInput);
 }
+//filter data with state === stateInput    
 if (stateInput){
     filteredData = filteredData.filter(row => row.state === stateInput);
 }
+//filter data with country === countryInput
 if (countryInput){
     filteredData = filteredData.filter(row => row.country === countryInput);
 }
+//filter data with shape === shapeInput
 if (shapeInput){
     filteredData = filteredData.filter(row => row.shape === shpaeInput);
 }
-//filter data with datetime === to inputValue
+
 filteredData.forEach(function(selected){
     var row=tbody.append("tr");
     Object.entries(selected).forEach(function([key,value]){
